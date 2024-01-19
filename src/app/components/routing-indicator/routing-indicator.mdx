@@ -1,0 +1,39 @@
+import { Layout, Playground, Attributes } from 'lib/components'
+import { RoutingIndicator } from 'components'
+
+export const meta = {
+  title: 'Routing Indicator',
+  group: 'Navigation',
+}
+
+# Routing Indicator
+
+The `RoutingIndicator` UI component provides visual feedback during page transitions, enhancing the user experience by showing the progress of navigation. 
+
+<Playground
+  scope={{ RoutingIndicator }}
+  title={'General'}
+  desc={'A routing indicator component to show progress during navigation'}
+  code={`
+    <RoutingIndicator>
+      {/* Your content */}
+    </RoutingIndicator>
+  `}
+/>
+
+<Attributes edit="/app/components/routing-indicator.mdx" >
+<Attributes.Title>RoutingIndicator.Props</Attributes.Title>
+
+| Attribute | Description        | Type        | Accepted values | Default |
+| --------- | ------------------ | ----------- | --------------- | ------- |
+| children  | Content to display | `ReactNode` | -               | -       |
+
+{' '}
+
+<Attributes.Title>Example Usage</Attributes.Title>
+
+```jsx
+<RoutingIndicator>{/* Your content */}</RoutingIndicator>
+```
+
+</Attributes >

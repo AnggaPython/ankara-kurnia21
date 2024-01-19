@@ -1,0 +1,31 @@
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Section, Text } from 'components'
+
+export const meta = {
+  title: 'Section',
+  group: 'Layout',
+}
+
+# Section
+
+The `Section` UI component offers a versatile container for organizing and structuring content in your web application.
+
+<Playground
+  scope={{ Section, Text }}
+  title={'Section example'}
+  desc={'Example of a section'}
+  code={`
+  <Section>
+    <Text>Section</Text>
+  </Section>
+  `}
+/>
+
+<Attributes edit="/app/components/section.mdx">
+<Attributes.Title>Section.Props</Attributes.Title>
+
+| Attribute | Description  | Type             | Accepted values          | Default |
+| --------- | ------------ | ---------------- | ------------------------ | ------- |
+| ...       | native props | `HTMLAttributes` | `'id', 'className', ...` | -       |
+
+</Attributes>

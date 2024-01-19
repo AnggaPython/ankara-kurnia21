@@ -1,0 +1,67 @@
+import { Code, Display } from 'components'
+import { Layout, Colors } from 'lib/components'
+
+export const meta = {
+  title: 'Colors',
+  group: 'Customization',
+  index: 20,
+}
+
+# Colors
+
+Default colors for themes.
+
+## How to
+
+You can use any color anywhere, all colors change with the theme.
+If you want to customize your colors, please read [use-theme](/hooks/use-theme) to learn more.
+
+<Display width="90%" caption={<span>Get palette from <Code>useTheme</Code>.</span>}>
+
+```jsx
+import { useTheme } from '@himalaya-ui/core'
+
+const myComponent = () => {
+  const { palette } = useTheme()
+
+  return <p style={{ color: palette.accents_1 }}>myComponent</p>
+}
+```
+
+</Display>
+
+## Accents
+
+<Colors type="normal" />
+
+## Gradient colors
+
+<Colors type="gradient" />
+
+## Primary
+
+<Colors type="primary" />
+
+## Secondary
+
+<Colors type="secondary" />
+
+## Success
+
+<Colors type="success" />
+
+## Error
+
+<Colors type="error" />
+
+## Warning
+
+<Colors type="warning" />
+
+## Tertiary
+
+<Colors type="tertiary" />
+
+## Link
+
+<Colors type="link" />

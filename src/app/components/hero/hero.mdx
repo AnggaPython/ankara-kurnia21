@@ -1,0 +1,101 @@
+import { Layout, Playground, Attributes } from 'lib/components';
+import { Hero, Link, Button } from 'components';
+
+export const meta = {
+  title: 'Hero',
+  group: 'General',
+};
+
+# Hero
+
+The `Hero` UI component is a visually striking element designed to draw attention to featured content or key sections of a web page. It typically consists of the following components:
+
+<Playground
+  scope={{ Hero, Link }}
+  title={'Hero Title'}
+  desc={'A prominent and eye-catching title that serves as the main headline for the hero section, often introducing the content.'}
+  code={`
+    <Hero.Title>Hero Title</Hero.Title>
+  `}
+/>
+
+<Playground
+  scope={{ Hero, Link }}
+  title={'Hero Description'}
+  desc={'A brief but informative description or message that complements the title, providing additional context or details.'}
+  code={`
+    <Hero.Desc>Hero Description</Hero.Desc>
+  `}
+/>
+<Playground
+  scope={{ Hero, Link }}
+  title={'Hero Tag'}
+  desc={'Tag or labels used to categorize or highlight the hero content, making it easy for users to understand the contents relevance or purpose.'}
+  code={`
+    <Hero.Tag hasGradient>Hero Tag</Hero.Tag>
+  `}
+/>
+
+<Playground
+  scope={{ Hero, Link, Button }}
+  title={'Hero Actions'}
+  desc={'List of call to actions or buttons for this component.'}
+  code={`<Hero.Actions>
+      <Link href={'/'}>
+        <Button type="primary" >
+          Some Link
+        </Button>
+      </Link>
+      <Link href={'/'}>
+        <Button>
+          Some Link
+        </Button>
+      </Link>
+    </Hero.Actions>
+  `}
+/>
+
+<Playground
+  scope={{ Hero, Link, Button }}
+  title={'Full hero example'}
+  desc={'Example of a Hero'}
+  code={`<Hero withDownArrow={false}>
+  <Hero.Tag hasGradient>Hero Tags</Hero.Tag>
+  <Hero.Title>Hero Title</Hero.Title>
+  <Hero.Desc>Hero Description</Hero.Desc>
+  <Hero.Actions>
+    <Link href={'/'}>
+      <Button type="primary" >
+        Some Link
+      </Button>
+    </Link>
+    <Link href={'/'}>
+      <Button>
+        Some Link
+      </Button>
+    </Link>
+  </Hero.Actions>
+</Hero>`}
+/>
+
+<Attributes edit="/app/components/hero.mdx">
+<Attributes.Title>Hero.Props</Attributes.Title>
+
+| Attribute         | Description                    | Type             | Accepted values          | Default                                 |
+| ----------------- | ------------------------------ | ---------------- | ------------------------ | --------------------------------------- |
+| extraPaddingDown? | Need some extra padding down   | `number`         | -                        | `oklch(59.59% 0.24 255.09156059071347)` |
+| withDownArrow?    | ending color of text           | `boolean`        | -                        | `true`                                  |
+| scrollToId?       | ID of the element to scroll to | `string`         | -                        | -                                       |
+| ...               | native props                   | `HTMLAttributes` | `'id', 'className', ...` | -                                       |
+
+<Attributes.Title>Hero.Tag.Props</Attributes.Title>
+
+| Attribute     | Description           | Type             | Accepted values          | Default     |
+| ------------- | --------------------- | ---------------- | ------------------------ | ----------- |
+| hasGradient?  | show gradient color   | `boolean`        | `true, false`            | `false`     |
+| gradientFrom? | starting color of tag | `string`         | -                        | `'#007cf0'` |
+| gradientTo?   | ending color of tag   | `string`         | -                        | `'#01dfd8'` |
+| textColor?    | color of text         | `string`         | -                        | `'#ffffff'` |
+| ...           | native props          | `HTMLAttributes` | `'id', 'className', ...` | -           |
+
+</Attributes>

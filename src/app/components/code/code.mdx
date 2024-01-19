@@ -1,0 +1,58 @@
+import { Code, Text } from 'components';
+import { Layout, Playground, Attributes, ParsedCodes } from 'lib/components';
+
+export const meta = {
+  title: 'Code',
+  group: 'General',
+};
+
+# Code
+
+The `Code` UI component serves as a versatile tool for displaying source code in a standardized and visually appealing way.
+Want to display shell code snippets? try [Snippet](/components/snippet).
+
+<Playground
+  desc="The component allows you to insert basic inline code snippets into your content."
+  scope={{ Code, Text }}
+  code={`
+<Text my={0}>Run <Code>yarn add @himalaya-ui/core</Code> to install.</Text>
+`}
+/>
+
+<Playground
+  title="Code Block"
+  desc="You can display multi-line code blocks with syntax highlighting and formatting, making it easy to showcase code examples."
+  scope={{ Code, ExampleCodes: ParsedCodes.Types }}
+  code={`
+<Code block my={0}><ExampleCodes /></Code>
+`}
+/>
+
+<Playground
+  title="width"
+  desc="Specify width manually, or other styles."
+  scope={{ Code, ExampleCodes: ParsedCodes.Greeting }}
+  code={`
+<Code block width="50%" my={0}><ExampleCodes /></Code>
+`}
+/>
+
+<Playground
+  title="name"
+  desc="Specify the file name for the code block."
+  scope={{ Code, ExampleCodes: ParsedCodes.Clock }}
+  code={`
+<Code block name="/Components/Clock.jsx" my={0}><ExampleCodes /></Code>
+`}
+/>
+
+<Attributes edit="/app/components/code.mdx">
+<Attributes.Title>Code.Props</Attributes.Title>
+
+| Attribute | Description                                 | Type             | Accepted values    | Default |
+| --------- | ------------------------------------------- | ---------------- | ------------------ | ------- |
+| **block** | show code in `pre`                          | `boolean`        | -                  | `false` |
+| **name**  | text displayed at the top of the code block | `string`         | -                  | -       |
+| ...       | native props                                | `HTMLAttributes` | `'className', ...` | -       |
+
+</Attributes>

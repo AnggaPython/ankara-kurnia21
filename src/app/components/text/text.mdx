@@ -1,0 +1,177 @@
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Text } from 'components'
+
+export const meta = {
+  title: 'Text',
+  group: 'General',
+  index: 10,
+}
+
+# Text
+
+The `Text` component allows you to display text with standardized typographic styles. It serves as the foundation for presenting textual content in your application or website.
+
+<Playground
+  title="Headings"
+  desc="You can use the Text component to create headings, such as h1 to h6. This helps in maintaining a consistent visual hierarchy for your content."
+  scope={{ Text }}
+  code={`
+<Text  h1>Start your Himalaya journey.</Text>
+`}
+/>
+
+<Playground
+  title="Paragraph"
+  desc="By applying the p and b attributes to a Text component, you can structure and emphasize text within paragraphs. This is especially useful for formatting and highlighting specific information."
+  scope={{ Text }}
+  code={`
+<>
+  <Text p>
+   Caching is very important for fast Web sites. This article describes different methods of caching and how to use HTTP Headers to control them.
+  </Text>
+  <Text p b>
+   A brief description of the changes between the early versions of HTTP, to the modern HTTP/2, the emergent HTTP/3 and beyond.
+  </Text>
+</>
+`}
+/>
+
+<Playground
+  title="Small"
+  scope={{ Text }}
+  code={`
+<>
+  <Text small>
+   HTTP response codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirections, client errors, and servers errors.
+  </Text>
+  <Text small i>
+   HTTP response codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirections, client errors, and servers errors.
+  </Text>
+</>
+`}
+/>
+
+<Playground
+  title="Blockquote"
+  scope={{ Text }}
+  code={`
+<Text blockquote my={0}>
+  Send cookies from the server to the user-agent.
+</Text>
+`}
+/>
+
+<Playground
+  title="Types"
+  scope={{ Text }}
+  code={`
+<Text b i style={{ letterSpacing: '0.6px' }}>
+  <Text span type="success">H</Text>
+  <Text span type="warning">i</Text>
+  <Text span type="secondary">m</Text>
+  <Text span type="error">a</Text>
+  <Text span color={'#ccc'}>l</Text>
+  <Text span type="secondary" ml="5px">a</Text>
+  <Text span type="success" ml="5px">y</Text>
+  <Text span type="success" ml="5px">a</Text>
+</Text>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  scope={{ Text }}
+  code={`
+<>
+  <Text font="12px" mt={0}>Font Size: 12px;</Text>
+  <Text font="14px">Font Size: 14px;</Text>
+  <Text font="1rem">Font Size: 1rem;</Text>
+  <Text scale={1.25} mb={0}>Font Size Scale: 1.25;</Text>
+</>
+`}
+/>
+
+<Playground
+  title="Stroke"
+  scope={{ Text }}
+  code={`
+<>
+  <Text font="1rem"  mt={0} stroke={0.5}>Strike Size: 0.5px;</Text>
+  <Text font="2rem" stroke={'0.05rem'}>Strike Size: 0.05rem;</Text>
+  <Text font="3rem" mb={0} mt={0} stroke={'1px'}>Strike Size: 1px;</Text>
+</>
+`}
+/>
+
+<Playground
+  title="Gradient"
+  scope={{ Text }}
+  code={`() => {
+    const theme = useTheme();
+    return (
+      <>
+        <Text font="1rem" mt={0} color={theme.palette.gradient_1}>Gradient 1</Text>
+        <Text font="2rem" gradientDegress={'bottom'} color={theme.palette.gradient_2}>Gradient 2 with Bottom Direction</Text>
+        <Text font="3rem" mt={0} mb={0} gradientDegress={140} color={theme.palette.gradient_3}>Gradient 3 with 140 Degress Direction</Text>
+      </>
+    )
+}
+`}
+/>
+
+<Playground
+  title="Compose"
+  desc="Effect of multiple `Text` stacks"
+  scope={{ Text }}
+  code={`
+<>
+  <Text p mt={0}>
+   Specifies origins that are allowed to see values of attributes retrieved via features of the Resource Timing API, which would otherwise be reported as zero due to cross-origin restrictions.
+  </Text>
+
+  <Text mb={0}>
+    <Text small del>Indicates if the resource transmitted should be displayed inline (default behavior without the header),</Text>
+    <Text small b>or if it should be handled like a download and the browser should present a “Save As” dialog.</Text>
+  </Text>
+</>`} />
+
+<Attributes edit="/app/components/text.mdx">
+<Attributes.Title>Text.Props</Attributes.Title>
+
+| Attribute      | Description    | Type             | Accepted values          | Default   |
+| -------------- | -------------- | ---------------- | ------------------------ | --------- |
+| **p**          | component name | `boolean`        | -                        | `true`    |
+| **h1 - h6**    | component name | `boolean`        | -                        | `false`   |
+| **small**      | component name | `boolean`        | -                        | `false`   |
+| **span**       | component name | `boolean`        | -                        | `false`   |
+| **del**        | component name | `boolean`        | -                        | `false`   |
+| **i**          | component name | `boolean`        | -                        | `false`   |
+| **em**         | component name | `boolean`        | -                        | `false`   |
+| **b**          | component name | `boolean`        | -                        | `false`   |
+| **blockquote** | component name | `boolean`        | -                        | `false`   |
+| **stroke**     | stroke the text | `number`        | -                         | -   |
+| **color**     | color of text | `TextColor`        | [TextColor](#textcolor)                              | -   |
+| **gradientDegress**     | degress of gradient | `GradientPositions`        | [GradientPositions](#gradientpositions)                         |  `right`   |
+| **type**       | text type      | `TextTypes`      | [TextTypes](#texttypes)  | `default` |
+| ...            | native props   | `HTMLAttributes` | `'id', 'className', ...` | -         |
+
+
+<Attributes.Title>TextColor</Attributes.Title>
+
+```ts
+type TextColor = string | Gradient
+```
+
+<Attributes.Title>TextTypes</Attributes.Title>
+
+```ts
+type TextTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+```
+
+<Attributes.Title>GradientPositions</Attributes.Title>
+
+```ts
+type GradientPositions = 'top' | 'left' | 'right' | 'bottom' | number
+```
+
+</Attributes>

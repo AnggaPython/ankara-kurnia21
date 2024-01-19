@@ -1,0 +1,127 @@
+import { Layout, Playground, Attributes } from 'lib/components';
+import { Skeleton, InnerScroll } from 'components';
+import React, { useState } from 'react';
+import { Award, Github } from 'components/icons';
+import { SearchResult, SearchResults } from 'components/search';
+
+export const meta = {
+  title: 'Inner scroll',
+  group: 'Layout',
+};
+
+# Scroll component
+
+The `InnerScroll` component is a flexible element that empowers your content with scrollable capabilities.
+Whether you need vertical, horizontal, or both directions, InnerScroll can adapt to your content requirements, making it an invaluable addition to your layout.
+
+## Vertical scroll
+
+<Playground
+  title="Vertical scroll example by maxHeight"
+  desc="Using maximum height"
+  type={'vertical'}
+  scope={{ InnerScroll, Skeleton }}
+  code={`
+() => {
+  return (
+    <InnerScroll style={{ maxHeight:150 }}  padding={1}>
+     <Skeleton  height={10}></Skeleton>
+    </InnerScroll>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Vertical scroll example by height"
+  desc="Using fixed height"
+  type={'vertical'}
+  scope={{ InnerScroll, Skeleton }}
+  code={`
+() => {
+  return (
+    <InnerScroll height={5} padding={1}>
+      <Skeleton height={10}></Skeleton>
+    </InnerScroll>
+  )
+}
+`}
+/>
+
+## Horizontal scroll
+
+<Playground
+  title="Horizontal scroll example by maxHeight"
+  desc="Using maximum width"
+  scope={{ InnerScroll, Skeleton }}
+  type={'horizontal'}
+  code={`
+() => {
+  return (
+    <InnerScroll style={{ maxWidth:200 }} padding={1}>
+     <Skeleton  height={'250px'} width={'350px'}></Skeleton>
+    </InnerScroll>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Horizontal scroll example by width"
+  desc="Using fixed width"
+  type={'horizontal'}
+  scope={{ InnerScroll, Skeleton }}
+  code={`
+() => {
+  return (
+    <InnerScroll width={'200px'} padding={1}>
+      <Skeleton height={10}  width={'350px'}></Skeleton>
+    </InnerScroll>
+  )
+}
+`}
+/>
+
+## Horizontal and vertical scroll
+
+<Playground
+  title="Horizontal and vertical scroll example by maxHeight"
+  desc="Using maximum width and height"
+  scope={{ InnerScroll, Skeleton }}
+  type={'both'}
+  code={`
+() => {
+  return (
+    <InnerScroll style={{ maxWidth: 200, maxHeight: 200} padding={1}>
+     <Skeleton  height={'350px'} width={'350px'}></Skeleton>
+    </InnerScroll>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Horizontal and vertical scroll example by width"
+  desc="Using fixed width and height"
+  type={'both'}
+  scope={{ InnerScroll, Skeleton}}
+  code={`
+() => {
+  return (
+    <InnerScroll width={'200px'} height={'200px'}  padding={1}>
+      <Skeleton height={'350px'}  width={'350px'}></Skeleton>
+    </InnerScroll>
+  )
+}
+`}
+/>
+<Attributes edit="/app/components/scroll.mdx">
+<Attributes.Title>VerticalScroll.Props</Attributes.Title>
+
+| Attribute | Description            | Type                             | Accepted values          | Default |
+| --------- | ---------------------- | -------------------------------- | ------------------------ | ------- |
+| **type**  | Type of scroll element | `vertical or horizontal or both` | -                        | `both`  |
+| **ref**   | forwardRef             | `Ref<HTMLDivElement or null>`    | -                        | -       |
+| ...       | native props           | `ButtonHTMLAttributes`           | `'id', 'className', ...` | -       |
+
+</Attributes>
